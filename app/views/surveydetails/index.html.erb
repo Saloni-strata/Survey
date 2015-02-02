@@ -1,0 +1,43 @@
+<h1>Survey details</h1>
+
+<div style="width:100%;"> 
+<div style=" float:left; width:60%;">
+<img src="Survey-Small1.jpg" width = 50px height = 50px></img>
+</div>
+<div style="float:right; width:40%; ">
+
+<h3> Hello Friends , Let's give me a quick <br/>overview of what can you here</h3>
+<br/><br/><br/>
+<h4>Well !!! You can create your own survey <br/>
+send it to your friends, clients , customers<br/>
+Get to you how they feel about your product, you <br/>
+a lot.</h4> 
+
+</div>
+</div>
+<table>
+  <tr>
+    <th>Sid</th>
+    <th>Surveyname</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @surveydetails.each do |surveydetail| %>
+  <tr>
+    <td><%= surveydetail.id %></td>
+    <td><%= surveydetail.surveyname %></td>
+    <td><%= link_to 'Show', surveydetail %> | </td>
+    <td><%= link_to 'Edit', edit_surveydetail_path(surveydetail) %> | </td>
+    <td><%= link_to 'Destroy', surveydetail, method: :delete, data: { confirm: 'Are you sure?' } %> | </td>
+    <td><%= link_to 'Create Question for survey', new_question_path(:surveydetail_id => surveydetail.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Survey', new_surveydetail_path %>|
+<%= button_to 'Send email'%>
+<%= button_to 'List User' %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sid: MyString
+  qid: MyString
+  type: 
+  que: MyString
+  opt1: MyString
+  opt2: MyString
+  opt3: MyString
+  opt4: MyString
+
+two:
+  sid: MyString
+  qid: MyString
+  type: 
+  que: MyString
+  opt1: MyString
+  opt2: MyString
+  opt3: MyString
+  opt4: MyString

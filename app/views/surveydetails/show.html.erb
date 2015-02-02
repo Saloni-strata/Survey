@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sid:</b>
+  <%= @surveydetail.id %>
+</p>
+
+<p>
+  <b>Surveyname:</b>
+  <%= @surveydetail.surveyname %>
+</p>
+
+
+<%= link_to 'Edit', edit_surveydetail_path(@surveydetail) %> |
+<%= link_to 'Back', surveydetails_path %>
+<%= link_to 'Create Question for survey', new_question_path(:surveydetail_id => @surveydetail.id)%>

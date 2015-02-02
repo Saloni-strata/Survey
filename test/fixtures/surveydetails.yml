@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sid: MyString
+  surveyname: MyString
+
+two:
+  sid: MyString
+  surveyname: MyString

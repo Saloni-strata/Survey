@@ -1,0 +1,4 @@
+array = ["text"]
+array.each do |a|
+	Option.create(:answer => a,:question_id => @question.id)
+end

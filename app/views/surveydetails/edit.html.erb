@@ -1,0 +1,7 @@
+<h1>Editing surveydetail</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @surveydetail %> |
+<%= link_to 'Back', surveydetails_path %> |
+<%= link_to 'Create Question for survey', new_question_path(:surveydetail_id => @surveydetail.id)%>

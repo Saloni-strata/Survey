@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Type:</b>
+  <%= @question.question_type %>
+</p>
+
+
+<p>
+  <b>Que:</b>
+  <%= @question.que %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'View all question', questions_path(:surveydetail_id => @question.surveydetail_id) %>
