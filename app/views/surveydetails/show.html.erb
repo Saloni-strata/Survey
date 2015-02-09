@@ -1,16 +1,56 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Sid:</b>
-  <%= @surveydetail.id %>
-</p>
+<h5>
 
 <p>
   <b>Surveyname:</b>
   <%= @surveydetail.surveyname %>
 </p>
+</h5>
+<div id="myDIV">
+  <div id="content">
+		<table>
+		  	<tr>
+		    	<th>Participant</th>
+		    	<% @surveydetail.questions.each do |t| %>
+		    	<th><%= t.que%></th>
+		    	<%end%>
+		  	</tr>
+		  	<% @surveydetail.user_details.each do |user| %>
+		  	<tr>
+	     		<td><%= user.uemail%></td> 
+			    <% user.user_responses.each do |ans| %>
+	    			<td><%= ans.answer%></td>
+	    		<% end %>
+		  	</tr>
+		  	<% end %>
+		</table>
+ 	</div>
+</div>
+<input type="button" id="Show_questions" value="Show Questions"  onclick= 'show_question()'>
+
+<input type="button" id="List_user" value="List User" onclick= 'list_user()' >
 
 
+<div id= "show_question" style="background-color:green;" hidden>
+
+	<div>
+	
+	 Question                 | Type |  options <br/>
+
+	<% @surveydetail.questions.each do |t| %>
+	
+		<%= t.que %>
+		<%= t.question_type %>
+
+		<% t.options.each do |o| %>
+			<%= o.answer %> | 
+		<%end%>
+	
+	<% end %>
+
+ 
+	</div>
+</div>
 <%= link_to 'Edit', edit_surveydetail_path(@surveydetail) %> |
 <%= link_to 'Back', surveydetails_path %>
 <%= link_to 'Create Question for survey', new_question_path(:surveydetail_id => @surveydetail.id)%>

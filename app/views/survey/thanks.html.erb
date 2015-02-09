@@ -1,0 +1,21 @@
+<h1>
+Thank you <%= @uemail%> for taking <%= @surveydetail.surveyname %> Survey
+</h1>
+<p> See Your Response </p>
+<div>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+  </tr>
+  <% @u.user_responses.each do |user| %>
+  <tr>
+    <td><%= user.question.que%></td>
+    <td><%= user.answer%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>

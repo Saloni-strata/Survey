@@ -1,4 +1,9 @@
 Survey::Application.routes.draw do
+ 
+  get "survey/index"
+
+  resources :userlist , :only => [:index, :show] 
+
   devise_for :users
 
   devise_scope :user do
@@ -8,6 +13,13 @@ Survey::Application.routes.draw do
 
 
   resources :surveydetails
+    #get 'user_show'
+  match '/surveydetail/user_show' => 'surveydetails#user_show'
+
+  
+  match '/survey/thanks' => 'survey#thanks'
+
+
 
 
   # The priority is based upon order of creation:

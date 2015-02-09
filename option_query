@@ -1,4 +1,150 @@
-array = ["text"]
+#content {
+    height: 5000px;
+    width: 5000px;
+    background-color: coral;
+}
+
+  <%= csrf_meta_tags %>
+
+<div id="list_user" hidden>
+<div>
+
+</div>
+</div>
+
+
+<table>
+  <tr>
+  <th>Question</th>
+  </tr>
+  <% @surveydetail.user_details.each do |user| %>
+  <tr>
+    
+    <td><%= user.user_response%></td>
+  </tr>
+
+style="float:left; width:80%;"
+style="float:bottom; width:90%;"
+style="float:left; width:100%"
+style="float:left; width:20%;"
+
+style-"float:bottom:width:90%;"
+  <th>Email</th>
+   
+<% end %>
+</table>
+
+
+validates :email, presence: true, allow_blank: false
+onclick= 'list_user()'
+
+<td><%= i.question.que%></td>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+  </tr>
+  <% @user.user_responses.each do |user_response| %>
+  <tr>
+    <td><%= user_response.question.que%></td>
+    <td><%= user_response.answer%></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<h3>
+User Email ID :
+<%= @user.uemail %><br/>
+Taken <%= @user.surveydetail.surveyname%> Survey <br/>
+</h3>
+
+@user_answer = UserResponse.new()
+    if @user_answer.save
+      options = params[:answers] || []
+      options.each do |i,a|
+        UserResponse.create(:answer => a,:question_id => i,:email_id => params[:email], :surveydetail_id => )
+      end
+      redirect_to question_path(@question.id)
+    else
+      @surveydetail = Surveydetail.find_by_id(params[:question][:surveydetail_id])
+      render :new
+    end
+
+params["answers"].each do |i,a|
+    p i
+   p a
+ end
+<%= button_to 'Send email'%>
+    @question = Question.new(params[:question])
+    if @question.save
+      options = params[:options] || []
+      options.each do |a|
+        Option.create(:answer => a,:question_id => @question.id)
+      end
+      redirect_to question_path(@question.id)
+    else
+      @surveydetail = Surveydetail.find_by_id(params[:question][:surveydetail_id])
+      render :new
+
+
+
+
+
+
+      array = ["text"]
 array.each do |a|
 	Option.create(:answer => a,:question_id => @question.id)
 end
+
+<select id="questionsOptions_<%= t.id%>" >
+         <% t.options.each do |o| %>
+          <option   value=<% o.answer%> > <%= o.answer%></option></br>
+        <%end%>
+         </select>
+
+
+<!-- <input  type="radio" name="questionsOptions_<%= t.id%>" value=<% o.answer%>> <%=o.answer%> </br> -->
+
+<table style="width:100%">
+  			<tr>
+    			<td>Jill</td>
+    			<td>Smith</td> 
+    			<td>50</td>
+  			</tr>
+  			<tr>
+   				<td>Eve</td>
+    			<td>Jackson</td> 
+    			<td>94</td>
+  			</tr>
+</table>
+<body onload= createOption() >
+
+<script language="javascript">
+function createOption()
+{
+  var element= document.createElement("input");
+
+  element.setAttribute("type", "text");
+    element.setAttribute("name", "option1");
+    element.setAttribute("value", "hello");
+
+    var brElement = document.createElement("br");
+
+    var foo = document.getElementById("survey");
+
+    //Append the element in page (in span).
+    foo.appendChild(element);
+    //foo.appendChild(brElement );
+
+}
+</script>
+
+
+
+<!--<%= @survey.inspect %>
+<%= @survey.questions %>
+<%= @survey.questions.collect(&:options) %>
+-->

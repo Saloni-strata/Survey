@@ -13,4 +13,4 @@
 </p>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'View all question', questions_path(:surveydetail_id => @question.surveydetail_id) %>
+<%= link_to 'Back to survey', surveydetail_path(:id => @question.surveydetail_id) %>

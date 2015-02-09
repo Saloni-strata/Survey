@@ -10,7 +10,10 @@ class SurveydetailsController < ApplicationController
   end
 
   def show
-    respond_with(@surveydetail)
+    @surveydetail = Surveydetail.find(params[:id])
+    # @surveydetail.id
+    # @survey=Question.get_data(@surveydetail.id)
+     respond_with(@surveydetail)
   end
 
   def new
@@ -24,7 +27,8 @@ class SurveydetailsController < ApplicationController
   def create
     @surveydetail = Surveydetail.new(params[:surveydetail])
     @surveydetail.save
-    respond_with(@surveydetail)
+    #respond_with(@surveydetail)
+    redirect_to surveydetails_path
   end
 
   def update
@@ -37,8 +41,13 @@ class SurveydetailsController < ApplicationController
     respond_with(@surveydetail)
   end
 
+ # def user_show
+  # @surveydetail = Surveydetail.find(params[:id])
+  #end
+
   private
     def set_surveydetail
       @surveydetail = Surveydetail.find(params[:id])
     end
 end
+

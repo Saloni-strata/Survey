@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_filter :set_question, only: [:show, :edit, :update, :destroy]
   respond_to :html
+  before_filter :authenticate_user!
 
   def index
     @surveydetail_id = params[:surveydetail_id] if params[:surveydetail_id].present? 
@@ -29,8 +30,16 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(params[:question])
-    @question.save
-    redirect_to question_path(@question.id)
+    if @question.save
+      options = params[:options] || []
+      options.each do |a|
+        Option.create(:answer => a,:question_id => @question.id)
+      end
+      redirect_to question_path(@question.id)
+    else
+      @surveydetail = Surveydetail.find_by_id(params[:question][:surveydetail_id])
+      render :new
+    end
     # respond_with(@question)
   end
 

@@ -1,0 +1,4 @@
+answers.each do |i,a|
+   ur = UserResponse.new(:answer => a,:question_id => i,:email_id => 'email', :surveydetail_id => 10005)
+    ur.save!
+end

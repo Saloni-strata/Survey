@@ -3,19 +3,26 @@
 </h1>
 
 <%= render 'form' %>
+
 <!--
 <h4>How many options you want to have</h4>
 
 <input type="text" name="count"></input><br/>
 -->
 
-<input type="button" id="opt" value="Add Options"  onclick=add()>
+<!--function addopt()
+{
+var you_select=document.getElementById("question_type");
+var ch=you_select.options[you_select.selectedIndex].value;
+var element=document.createElement("input");
+element.setAttribute("type","text");
+element.setAttribute("value","text");
+element.setAttribute("name","text");
+var foo=document.getElementById("survey");
+foo.appendChild(element);
+}
+</script>
+-->
 
-
-
-<span id="fooBar"> 
-<div id="survey" background-color: blue>
-</div>
-</span>	
 <%= link_to 'View all question', questions_path %>
 

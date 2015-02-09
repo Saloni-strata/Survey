@@ -1,0 +1,19 @@
+<h1>User Participated In Survey</h1>
+<div>
+
+<table>
+  <tr>
+    <th>Surveyname</th>
+    <th>Email_id</th>
+  </tr>
+  <% @user.each do |userlist| %>
+  <tr>
+    <td><%= userlist.surveydetail.surveyname%></td>
+    <td><%= userlist.uemail %></td>
+    <td><%= link_to "View Response", userlist_path(userlist)%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>

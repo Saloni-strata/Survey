@@ -1,0 +1,37 @@
+
+<%= form_tag(survey_thanks_path)  do %>
+
+ 	<h1>Welcome To <%= @surveydetail.surveyname %> Survey </h1>
+  
+  	<p>	E-mail: <input type="email" name="email"><br/></p>
+  	
+    
+	<span>
+		<div name= "survey" id= "survey">
+		
+		 Question<br/>
+		 
+		 	<%= hidden_field_tag :surveydetail_id, @surveydetail.id%>
+
+			<% @surveydetail.questions.each_with_index do |t,i| %>
+				<%= i+1 %>
+				<%= t.que %><br/>
+			    <% if t.question_type == "radio" %>
+					<% t.options.each do |o| %>
+				  		<%= radio_button_tag "answers[#{t.id}]", o.answer %>
+				  		<%= o.answer %>
+				  		<br/>
+				  	<%end%> 			
+			    <% elsif t.question_type == "select" %>
+			    	<%= select_tag "answers[#{t.id}]", options_for_select(t.options.collect(&:answer)), :include_blank => "Please select" %>
+				    <br/>
+			    <% else %>
+				   <%= text_field_tag "answers[#{t.id}]" %><br/>
+			    <% end %>	
+		   <%end%><br/><br />
+		</div>
+	</span>
+
+    <input type="submit">
+
+ <%end %>

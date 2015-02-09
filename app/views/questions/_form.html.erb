@@ -11,25 +11,31 @@
     </div>
   <% end %>
  
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.select :question_type, options_for_select([['Multiple Choice','radio'],['Text Field','text'],['Drop Down','select']]) , :id => "thickness_field"%>
-  </div>
 
   <div class="field">
     <%= f.label :que %><br />
     <%= f.text_field :que %>
   </div>
 
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="field">
+    <%= f.label :type %><br />
+    <%= f.select :question_type, options_for_select([['Multiple Choice','radio'],['Text Field','text'],['Drop Down','select']]) , :id => "question_type"%>
   </div>
 
-  <div class="field">
-    <%= f.label :surveydetail_id %><br />
-    <%= f.text_field :surveydetail_id,  :value => @surveydetail.id, :readonly => true%>
-  </div>
-  
+
   <%= f.hidden_field :surveydetail_id, :value => @surveydetail.id%>
+
+<span id="fooBar"> 
+<div id="survey" >
+</div>
+
+</span> 
+ <input type="button" id="opt" value="Add Options"  onclick=addopt()>
+ <br/>
+    <div class="actions">
+    <br/>
+    <%= f.submit :value => "Submit" %>
+  </div>
 <% end %>
+
+

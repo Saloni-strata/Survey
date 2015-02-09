@@ -1,0 +1,36 @@
+<h1>Welcome User</h1>
+
+
+
+
+<form name= "Take_survey">
+<span>
+<div name= "survey" id= "survey">
+	
+	
+	ID     | Question                 | Type |  options <br/>
+
+	<%  @surveydetail.questions.first.que%>
+
+	<% @surveydetail.questions.each do |t| %>
+	<%= t.id %>
+	<%= t.que %>
+	<%= t.question_type %> | 
+
+	<% t.options.each do |o| %>
+	<% if t.question_type == "radio" %>
+		<input type="radio" value=<% o.answer%> > <% o.answer%> 			
+	<% else %>
+		<input type="checkbox" value=<% o.answer%> >
+	<% end %>	
+	
+	<%= o.answer %> | 
+	<%end%>
+	<br/>
+	<br />
+	<% end %>
+
+ 
+	</div>
+   </span>
+	</form>

@@ -17,7 +17,7 @@ a lot.</h4>
 </div>
 <table>
   <tr>
-    <th>Sid</th>
+    
     <th>Surveyname</th>
     <th></th>
     <th></th>
@@ -26,7 +26,7 @@ a lot.</h4>
 
 <% @surveydetails.each do |surveydetail| %>
   <tr>
-    <td><%= surveydetail.id %></td>
+   
     <td><%= surveydetail.surveyname %></td>
     <td><%= link_to 'Show', surveydetail %> | </td>
     <td><%= link_to 'Edit', edit_surveydetail_path(surveydetail) %> | </td>
@@ -39,5 +39,5 @@ a lot.</h4>
 <br />
 
 <%= link_to 'New Survey', new_surveydetail_path %>|
-<%= button_to 'Send email'%>
-<%= button_to 'List User' %>
+
+<%= link_to 'List User', userlist_index_path%>
